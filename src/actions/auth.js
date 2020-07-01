@@ -3,29 +3,11 @@ export const types = {
 };
 
 /**
- * 
- * @param {string} accessToken 
- * @param {string} erroMessage 
- * @param {string} expirationTime 
- * @param {string} expiresIn 
- * @param {boolean} isLogged 
- * @param {string} tokenType 
+ *
+ * @param {object} authData
+ *
  */
-export const updateAuthState = (
-  accessToken = "",
-  erroMessage = "",
-  expirationTime = "",
-  expiresIn = "",
-  isLogged = false,
-  tokenType = ""
-) => ({
+export const updateAuthState = (authData) => ({
   type: types.UPDATE_AUTH_STATE,
-  payload: {
-    accessToken,
-    erroMessage,
-    expirationTime,
-    expiresIn,
-    isLogged,
-    tokenType,
-  },
+  payload: { ...authData },
 });

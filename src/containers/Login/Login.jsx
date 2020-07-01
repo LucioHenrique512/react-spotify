@@ -2,19 +2,22 @@ import React from "react";
 import Logo from "../../components/Logo";
 import "./Login.scss";
 import { config } from "../../config";
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom";
+import { randomString } from "../../utils";
 
 const Login = () => {
   const { spotify } = config;
-  const {hash} = useLocation()
+  const { hash } = useLocation();
 
   const authUrl = `${spotify.authorizationURL}?client_id=${
     spotify.clientId
   }&response_type=token&redirect_uri=${
     spotify.redirectUrl
-  }&scope=${spotify.scopes.toString().replace(/(,)/gi, " ")}&state=34fFs29kd09`;
-  
-  console.log(hash)
+  }&scope=${spotify.scopes
+    .toString()
+    .replace(/(,)/gi, " ")}&state=${randomString.random(15)}`;
+
+  console.log(hash);
 
   return (
     <main className="login" data-testid="login">
@@ -26,7 +29,11 @@ const Login = () => {
         <a href={authUrl} className="login__auth-button">
           Entrar com spotify
         </a>
-        {hash.includes("erro")?(<span className="login__erromessage">Algo deu errado com seu login, favor tente novamente. 😔</span>):null}
+        {hash.includes("erro") ? (
+          <span className="login__erromessage">
+            Algo deu errado com seu login, favor tente novamente. 😔
+          </span>
+        ) : null}
       </div>
     </main>
   );

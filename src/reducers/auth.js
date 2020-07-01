@@ -14,12 +14,7 @@ const auth = (state = INIT_STATE, action) => {
     case authActions.types.UPDATE_AUTH_STATE:
       return {
         ...state,
-        accessToken: action.payload.accessToken,
-        erroMessage: action.payload.erroMessage,
-        expirationTime: action.payload.expirationTime,
-        expiresIn: action.payload.expiresIn,
-        isLogged: action.payload.isLogged,
-        tokenType: action.payload.tokenType,
+        ...action.payload,
       };
     default:
       return state;

@@ -1,3 +1,6 @@
+import { userActions } from "../actions";
+const { types } = userActions;
+
 const INIT_STATE = {
   email: "",
   erroMessage: "",
@@ -7,7 +10,15 @@ const INIT_STATE = {
 };
 
 const user = (state = INIT_STATE, action) => {
-  return state;
+  switch (action.type) {
+    case types.UPDATE_USER_STATE:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    default:
+      return { ...state };
+  }
 };
 
 export default user;
