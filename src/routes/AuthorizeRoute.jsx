@@ -1,7 +1,8 @@
 import React from "react"
+import Authorize from "../containers/Authorize"
 
 const AuthorizeRoute = () => {
-    return(<h1>Olá Spotfy</h1>)
+    return(<Authorize/>)
 }
 
 export default AuthorizeRoute;
