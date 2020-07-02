@@ -1,8 +1,14 @@
-import React from 'react';
+import React from "react";
+import "./Dashboard.scss";
+import Topbar from "../Topbar";
 
-import './Dashboard.scss';
-
-const Dashboard = ({ children }) => (<div className="dashboard" data-testid="dashboard"/>);
+const Dashboard = ({ children }) => {
+  return (
+    <div className="dashboard" data-testid="dashboard">
+      <Topbar />
+      {children}
+    </div>
+  );
+};
 
 export default Dashboard;
-

@@ -1,13 +1,37 @@
-import React  from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { Loading } from '../../components';
+import { Loading } from "../../components";
 
-import CategoryItem from './CategoryItem';
+import CategoryItem from "./CategoryItem";
 
-import './Categories.scss';
+import { useSelector } from "react-redux";
 
-const Categories = ({ data, isLoading, url }) => (<div className="categories" data-testid="categories"/>);
+import "./Categories.scss";
+
+const Categories = ({ data, isLoading, url }) => {
+  //console.log(data);
+  if (isLoading) {
+    return <Loading />;
+  }
+  return (
+    <div className="categories" data-testid="categories">
+      <div className="container">
+        <span className="categories__title">Categorias</span>
+        <div className="categories__content">
+          {data.map((item) => (
+            <CategoryItem
+              key={item.id}
+              id={item.id}
+              icon={item.icons[0].url}
+              name={item.name}
+              url={item.href}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Categories;
-

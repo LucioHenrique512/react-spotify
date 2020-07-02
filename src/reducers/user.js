@@ -7,6 +7,7 @@ const INIT_STATE = {
   name: "",
   status: "",
   thumb: "",
+  userUrl: "",
 };
 
 const user = (state = INIT_STATE, action) => {
@@ -17,7 +18,7 @@ const user = (state = INIT_STATE, action) => {
         ...action.payload,
       };
     default:
-      return { ...state };
+      return state;
   }
 };
 

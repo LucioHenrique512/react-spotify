@@ -38,40 +38,58 @@ const Authorize = () => {
       }
     };
     getAuthData();
-  }, [hash, dispatch]);
+  }, [hash, dispatch,history]);
 
   useEffect(() => {
     const getUserData = () => {
       if (auth.accessToken !== "") {
-        api.get("/me").then((response) => {
-          const { display_name, email, product, images, error } = response;
-
-          if (display_name) {
-            dispatch(
-              userActions.updateUser({
-                email,
-                name: display_name,
-                status: product,
-                thumb: images[0].url,
-              })
-            );
-            dispatch(authActions.updateAuthState({ isLogged: true }));
-            history.push("/");
-          }
-          if (error) {
-            dispatch(
-              authActions.updateAuthState({
-                isLogged: false,
-                erroMessage: error,
-              })
-            );
-            history.push("/login#error");
-          }
-        });
+        api
+          .get("/me", null, `${auth.tokenType} ${auth.accessToken}`)
+          .then((response) => {
+            const {
+              display_name,
+              email,
+              product,
+              images,
+              error,
+              external_urls,
+            } = response;
+            console.log(response);
+            if (display_name) {
+              dispatch(
+                userActions.updateUser({
+                  email,
+                  name: display_name,
+                  status: product,
+                  thumb: images[0].url,
+                  userUrl: external_urls.spotify,
+                })
+              );
+              dispatch(authActions.updateAuthState({ isLogged: true }));
+              history.push("/");
+            }
+            if (error) {
+              dispatch(
+                authActions.updateAuthState({
+                  isLogged: false,
+                  erroMessage: error,
+                  accessToken: "",
+                  expirationTime: "",
+                  expiresIn: "",
+                  tokenType: "",
+                })
+              );
+              history.push("/login#error");
+            }
+          });
       }
     };
-    if (user.status === "") getUserData();
-  }, [user, auth, dispatch]);
+    if (!auth.isLogged || user.name === "") {
+      getUserData();
+    } else {
+      history.push("/");
+    }
+  }, [user, auth, dispatch,history]);
 
   return (
     <div className="callback" data-testid="callback">

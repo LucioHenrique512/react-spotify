@@ -3,13 +3,14 @@ import { Route, Switch } from "react-router-dom";
 import AuthorizeRoute from "./AuthorizeRoute";
 import LoginRoute from "./LoginRoute";
 import PrivateRoute from "../containers/PrivateRoute";
+import Dashboard from "./DashboardRoute"
 
 const Routes = () => {
-  const DashBoard = () => <h1>Olá, Mundo spotify</h1>;
+ 
 
   return (
     <Switch>
-      <PrivateRoute exact path="/" comp={DashBoard} />
+      <PrivateRoute exact path="/" comp={Dashboard} />
       <Route path="/login" component={LoginRoute} />
       <Route path="/authorize" component={AuthorizeRoute} />
     </Switch>
