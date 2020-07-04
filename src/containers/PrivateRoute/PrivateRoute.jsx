@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const PrivateRoute = ({ comp: Component, ...rest }) => {
   const isLogged = useSelector((state) => state.auth.isLogged);
 
-  console.log(rest.children);
+ // console.log(rest.children);
 
   return (
     <Route

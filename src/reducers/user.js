@@ -17,6 +17,8 @@ const user = (state = INIT_STATE, action) => {
         ...state,
         ...action.payload,
       };
+    case types.CLEAN_USER_STATE:
+      return INIT_STATE;
     default:
       return state;
   }

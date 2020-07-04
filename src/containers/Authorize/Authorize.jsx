@@ -5,6 +5,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions, userActions } from "../../actions";
 import api from "../../modules/api";
+import endpoints from "../../modules/endpoints"
 
 const Authorize = () => {
   const { hash } = useLocation();
@@ -34,7 +35,7 @@ const Authorize = () => {
         );
         //onsole.log({ accessToken, tokenType, expiresIn, state });
       } else {
-        history.push("/login#erro");
+        history.push("/#erro");
       }
     };
     getAuthData();
@@ -44,7 +45,7 @@ const Authorize = () => {
     const getUserData = () => {
       if (auth.accessToken !== "") {
         api
-          .get("/me", null, `${auth.tokenType} ${auth.accessToken}`)
+          .get(endpoints.getUser, null, `${auth.tokenType} ${auth.accessToken}`)
           .then((response) => {
             const {
               display_name,
@@ -54,7 +55,7 @@ const Authorize = () => {
               error,
               external_urls,
             } = response;
-            console.log(response);
+            //console.log(response);
             if (display_name) {
               dispatch(
                 userActions.updateUser({
@@ -66,7 +67,7 @@ const Authorize = () => {
                 })
               );
               dispatch(authActions.updateAuthState({ isLogged: true }));
-              history.push("/");
+              history.push("/dashboard");
             }
             if (error) {
               dispatch(
@@ -79,7 +80,7 @@ const Authorize = () => {
                   tokenType: "",
                 })
               );
-              history.push("/login#error");
+              history.push("/#error");
             }
           });
       }
@@ -87,7 +88,7 @@ const Authorize = () => {
     if (!auth.isLogged || user.name === "") {
       getUserData();
     } else {
-      history.push("/");
+      history.push("/dashboard");
     }
   }, [user, auth, dispatch,history]);
 

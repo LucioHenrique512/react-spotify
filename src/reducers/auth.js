@@ -16,6 +16,8 @@ const auth = (state = INIT_STATE, action) => {
         ...state,
         ...action.payload,
       };
+    case authActions.types.CLEAN_AUTH_STATE:
+      return INIT_STATE;
     default:
       return state;
   }

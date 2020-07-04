@@ -5,8 +5,6 @@ import { Loading } from "../../components";
 
 import CategoryItem from "./CategoryItem";
 
-import { useSelector } from "react-redux";
-
 import "./Categories.scss";
 
 const Categories = ({ data, isLoading, url }) => {
@@ -25,7 +23,7 @@ const Categories = ({ data, isLoading, url }) => {
               id={item.id}
               icon={item.icons[0].url}
               name={item.name}
-              url={item.href}
+              url={url}
             />
           ))}
         </div>

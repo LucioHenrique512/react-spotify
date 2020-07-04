@@ -1,5 +1,5 @@
 import React from "react"
-import Authorize from "../containers/Authorize"
+import {Authorize} from "../containers"
 
 const AuthorizeRoute = () => {
     return(<Authorize/>)
