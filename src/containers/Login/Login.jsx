@@ -11,9 +11,9 @@ const Login = () => {
 
   const authUrl = `${spotify.authorizationURL}?client_id=${
     spotify.clientId
-  }&response_type=token&redirect_uri=${
+  }&response_type=token&redirect_uri=${encodeURIComponent(
     spotify.redirectUrl
-  }&scope=${spotify.scopes
+  )}&scope=${spotify.scopes
     .toString()
     .replace(/(,)/gi, " ")}&state=${randomString(15)}`;
 
@@ -31,7 +31,7 @@ const Login = () => {
         </a>
         {hash.includes("erro") ? (
           <span className="login__erromessage">
-            Algo deu errado com seu login, favor tente novamente. 
+            Algo deu errado com seu login, favor tente novamente.
           </span>
         ) : null}
       </div>
