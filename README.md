@@ -1,5 +1,5 @@
 # React / Redux Spotify Pocket SPA
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5978fc42-96b4-45fa-90f4-e16d540b0659/deploy-status)](https://app.netlify.com/sites/react-spotfiy/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e149ed91-2d90-49fc-bdbe-da0bca7ca9c0/deploy-status)](https://app.netlify.com/sites/pcoket-spotify/deploys)
 
 Minha implementação do Desafio React-17 Codenation
 
