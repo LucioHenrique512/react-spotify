@@ -34,19 +34,16 @@ const DashboardRoute = () => {
 
   const isLoading = categories.length === 0;
 
+  const CategoriesComponent = () => (
+    <Categories data={categories} user={user} isLoading={isLoading} url={url} />
+  );
+
   return (
     <Dashboard>
       <Topbar />
 
       <Switch>
-        <PrivateRoute exact path={`${path}`}>
-          <Categories
-            data={categories}
-            user={user}
-            isLoading={isLoading}
-            url={url}
-          />
-        </PrivateRoute>
+        <PrivateRoute exact path={`${path}`} comp={CategoriesComponent} />
 
         <PrivateRoute exact path={`${path}/:categoryid`}>
           <PlaylistsRoute path={path} />
