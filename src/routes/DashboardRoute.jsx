@@ -3,15 +3,9 @@ import api from "../modules/api";
 import { useDispatch, useSelector } from "react-redux";
 import { contentAction } from "../actions";
 import { Switch, useRouteMatch } from "react-router-dom";
-import {
-  PrivateRoute,
-  Categories,
-  Dashboard,
-  Topbar,
-  Tracks,
-} from "../containers";
+import { PrivateRoute, Categories, Dashboard, Topbar } from "../containers";
 import endpoints from "../modules/endpoints";
-import { WelcomeBox } from "../components";
+
 import PlaylistsRoute from "./PlaylistsRoute";
 import TracksRoute from "./TracksRoute";
 
@@ -46,8 +40,12 @@ const DashboardRoute = () => {
 
       <Switch>
         <PrivateRoute exact path={`${path}`}>
-          <WelcomeBox name={user.name} />
-          <Categories data={categories} isLoading={isLoading} url={url} />
+          <Categories
+            data={categories}
+            user={user}
+            isLoading={isLoading}
+            url={url}
+          />
         </PrivateRoute>
 
         <PrivateRoute exact path={`${path}/:categoryid`}>

@@ -29,9 +29,7 @@ const PlaylistRoute = ({ path }) => {
           }
         });
     }
-  }, [categoryid, api]);
-
-
+  }, [categoryid, accessToken, tokenType, dispatch]);
 
   return (
     <Playlists

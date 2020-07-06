@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsPlayFill, BsVolumeUp } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import { contentAction } from "../../actions";

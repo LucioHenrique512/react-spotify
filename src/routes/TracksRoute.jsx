@@ -25,7 +25,7 @@ const TracksRoute = ({ path }) => {
           if (items) dispatch(contentAction.updateTracksArray(items));
         }
       });
-  }, [playlistid, endpoints]);
+  }, [playlistid,accessToken,tokenType,dispatch]);
 
   return (
     <Tracks

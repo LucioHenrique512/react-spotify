@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "./App.scss";
 import Routes from "../../routes";
 
-import { useSelector, useDispatch } from "react-redux";
+/*import { useSelector, useDispatch } from "react-redux";
 import api from "../../modules/api";
 import { useHistory } from "react-router-dom";
 import { authActions, userActions } from "../../actions";
-import endpoints from "../../modules/endpoints";
+import endpoints from "../../modules/endpoints";*/
 
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -16,7 +16,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 const App = () => {
   //const { auth, user } = useSelector((state) => state);
-  
+
   /**const history = useHistory();
   const dispatch = useDispatch();
 

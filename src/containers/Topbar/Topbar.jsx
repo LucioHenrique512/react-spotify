@@ -13,7 +13,7 @@ const Topbar = () => {
         <div className="spotify-brand">
           <Logo />
         </div>
-        <a href={userUrl} target="_blank" className="user">
+        <a href={userUrl} target="_blank" rel="noopener noreferrer" className="user">
           <span className="user__name">{name}</span>
           <div className="user__thumb">
             <img src={thumb} alt="User thumb" />
