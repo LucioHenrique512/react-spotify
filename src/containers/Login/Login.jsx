@@ -24,14 +24,14 @@ const Login = () => {
       <div className="container">
         <Logo className=".spotify-brand" />
         <div className="login__microcopy">
-          Não toca a musica inteira<strong> más toca o seu ❤</strong>
+          Não toca a musica inteira<strong> más toca o seu coração</strong>
         </div>
         <a href={authUrl} className="login__auth-button">
           Entrar com spotify
         </a>
         {hash.includes("erro") ? (
           <span className="login__erromessage">
-            Algo deu errado com seu login, favor tente novamente. 😔
+            Algo deu errado com seu login, favor tente novamente. 
           </span>
         ) : null}
       </div>
