@@ -9,9 +9,15 @@ import { useHistory } from "react-router-dom";
 import { authActions, userActions } from "../../actions";
 import endpoints from "../../modules/endpoints";
 
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store, persistor } from "../../store";
+import { PersistGate } from "redux-persist/integration/react";
+
 const App = () => {
-  const { auth, user } = useSelector((state) => state);
-  const history = useHistory();
+  //const { auth, user } = useSelector((state) => state);
+  
+  /**const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,11 +40,17 @@ const App = () => {
     };
 
     if (user.name !== "" && auth.isLogged) verifyApiError();
-  });
+  });*/
 
   return (
     <div className="app" data-testid="app">
-      <Routes />
+      <BrowserRouter>
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <Routes />
+          </PersistGate>
+        </Provider>
+      </BrowserRouter>
     </div>
   );
 };

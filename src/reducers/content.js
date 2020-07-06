@@ -18,6 +18,27 @@ const content = (state = INIT_STATE, action) => {
         ...state,
         categories: action.payload,
       };
+    case types.UPDATE_PLAYLIST_ARRAY:
+      return {
+        ...state,
+        playlists: action.payload,
+      };
+    case types.UPDATE_TRACKS_ARRAY:
+      return {
+        ...state,
+        tracks: action.payload,
+      };
+    case types.UPDATE_PLAYING_STATE:
+      return {
+        ...state,
+        ...action.payload,
+        playerHeight: action.payload?.playingNowId !== null ? 95 : 0,
+      };
+    case types.UPDATE_PLAYING_STATUS:
+      return {
+        ...state,
+        status: action.payload,
+      };
     default:
       return { ...state };
   }

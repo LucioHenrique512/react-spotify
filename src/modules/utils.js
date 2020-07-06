@@ -1,4 +1,4 @@
-export const random = (length) => {
+export const randomString = (length) => {
   var result = "";
   var characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -7,4 +7,9 @@ export const random = (length) => {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
+};
+
+export const getNameByID = (array, id) => {
+  const { name = "" } = array.find((item) => item.id === id) || "";
+  return name;
 };

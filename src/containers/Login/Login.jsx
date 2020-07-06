@@ -3,7 +3,7 @@ import Logo from "../../components/Logo";
 import "./Login.scss";
 import { config } from "../../config";
 import { useLocation } from "react-router-dom";
-import { randomString } from "../../utils";
+import { randomString } from "../../modules/utils";
 
 const Login = () => {
   const { spotify } = config;
@@ -15,9 +15,9 @@ const Login = () => {
     spotify.redirectUrl
   }&scope=${spotify.scopes
     .toString()
-    .replace(/(,)/gi, " ")}&state=${randomString.random(15)}`;
+    .replace(/(,)/gi, " ")}&state=${randomString(15)}`;
 
-  console.log(hash);
+  //console.log(hash);
 
   return (
     <main className="login" data-testid="login">
