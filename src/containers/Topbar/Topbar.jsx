@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../../components/Logo";
 import "./Topbar.scss";
 import { useSelector } from "react-redux";
+import { FiUser } from "react-icons/fi";
 
 const Topbar = () => {
   const {
@@ -13,10 +14,19 @@ const Topbar = () => {
         <div className="spotify-brand">
           <Logo />
         </div>
-        <a href={userUrl} target="_blank" rel="noopener noreferrer" className="user">
+        <a
+          href={userUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="user"
+        >
           <span className="user__name">{name}</span>
           <div className="user__thumb">
-            <img src={thumb} alt="User thumb" />
+            {thumb !== "" || thumb !== "undefined" ? (
+              <img src={thumb} alt="User thumb" />
+            ) : (
+              <FiUser />
+            )}
           </div>
         </a>
       </div>

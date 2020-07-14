@@ -61,7 +61,7 @@ const AuthorizeRoute = () => {
                   email,
                   name: display_name,
                   status: product,
-                  thumb: images[0].url,
+                  thumb: images[0]?.url,
                   userUrl: external_urls.spotify,
                 })
               );
