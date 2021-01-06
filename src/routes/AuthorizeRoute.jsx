@@ -32,7 +32,7 @@ const AuthorizeRoute = () => {
             tokenType,
           })
         );
-        //onsole.log({ accessToken, tokenType, expiresIn, state });
+        //console.log({ accessToken, tokenType, expiresIn, state });
       } else {
         history.push("/#erro");
       }

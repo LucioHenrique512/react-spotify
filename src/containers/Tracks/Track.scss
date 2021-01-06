@@ -1,7 +1,11 @@
 .track {
   -webkit-tap-highlight-color: transparent;
   align-items: center;
-  background: linear-gradient(0deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.01) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   border-radius: 5px;
   cursor: pointer;
   display: flex;
@@ -35,8 +39,8 @@
     height: 32px;
     overflow: hidden;
     position: relative;
-    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
-    transition: all .2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s;
 
     &__wrapper {
       align-items: center;
@@ -47,9 +51,12 @@
       position: absolute;
       top: 0;
       transform: translate(0, 0);
-      transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
-      transition: all .2s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.2s;
       width: 100%;
+      svg {
+        margin-bottom: 5px;
+      }
     }
 
     &__icon {
@@ -74,8 +81,8 @@
     line-height: 1.3em;
     font-weight: 600;
     margin-bottom: 5px;
-    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
-    transition: all .2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s;
   }
 
   &__artists {

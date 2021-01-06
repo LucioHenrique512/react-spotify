@@ -18,7 +18,7 @@ const Login = () => {
     .replace(/(,)/gi, " ")}&state=${randomString(15)}`;
 
   //console.log(hash);
-
+  //console.log("REDIRECT", spotify.redirectUrl);
   return (
     <main className="login" data-testid="login">
       <div className="container">
